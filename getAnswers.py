@@ -1,9 +1,8 @@
 from prettytable import PrettyTable
-from utils import get_soup, get_next
+from utils import get_soup, get_next, MODE
 import re
 
 MAX_COUNT = 10000
-MODE = re.compile(r'\d+')
 
 
 def get_answers(user, count=MAX_COUNT):

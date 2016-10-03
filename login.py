@@ -1,49 +1,6 @@
-from PIL import Image
+from utils import get_xsrf, get_captcha, headers
 import requests
-import time
 import re
-
-
-# Request headers
-headers = {
-    'User-Agent': "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36",
-    'Host': "www.zhihu.com",
-}
-
-
-def get_xsrf(session):
-    """
-    xsrf 是一个动态变化的参数，提交请求时必须提交xsrf，此函数用来获取xsrf。
-    """
-    index_url = 'http://www.zhihu.com'
-
-    # 获取登录时需要用到的_xsrf
-    html = session.get(index_url, headers=headers)
-    pattern = r'name="_xsrf" value="(.*?)"'
-
-    # 这里的_xsrf 返回的是一个list
-    _xsrf = re.findall(pattern, html.text)
-    return _xsrf[0]
-
-
-def get_captcha(session):
-    """
-    获取验证码。
-    """
-    t = str(int(time.time() * 1000))
-    captcha_url = 'http://www.zhihu.com/captcha.gif?r=' + t + "&type=login"
-    r = session.get(captcha_url, headers=headers)
-
-    with open('captcha.jpg', 'wb') as f:
-        f.write(r.content)
-
-    img = Image.open('captcha.jpg')
-    img.show()
-    img.close()
-
-    captcha = input("please input the captcha\n>")
-    return captcha
-
 
 def login(session, secret, account):
     """

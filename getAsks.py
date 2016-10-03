@@ -1,9 +1,9 @@
 from prettytable import PrettyTable
-from utils import get_soup, get_next
-import re
+from utils import get_soup, get_next, MODE
+
 
 MAX_COUNT = 10000
-MODE = re.compile(r'\d+')
+
 
 def get_asks(user, count=MAX_COUNT):
     start_url = "https://www.zhihu.com/people/%s/asks" % user
