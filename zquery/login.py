@@ -1,13 +1,31 @@
-from utils import get_xsrf, get_captcha, headers
+# Copyright 2016 wisedoge
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#     http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+from .utils import get_xsrf, get_captcha, headers
 import requests
 import re
 
+
 def login(session, secret, account):
-    """
-    通过输入的用户名判断是否是手机号。
+    """登录
+    :param requests.Session session: 网络会话
+    :param str secret: 知乎密码
+    :param str account: 知乎用户名
+    。
     """
     if re.match(r"^1\d{10}$", account):
-        print("Phone login \n")
+        print("Phone login")
         post_url = 'http://www.zhihu.com/login/phone_num'
         postdata = {
             '_xsrf': get_xsrf(session),
@@ -16,7 +34,7 @@ def login(session, secret, account):
             'phone_num': account,
         }
     else:
-        print("E-mail login \n")
+        print("E-mail login")
         post_url = 'http://www.zhihu.com/login/email'
         postdata = {
             '_xsrf': get_xsrf(session),
@@ -34,12 +52,15 @@ def login(session, secret, account):
         postdata["captcha"] = get_captcha(session)
         login_page = session.post(post_url, data=postdata, headers=headers)
         login_code = eval(login_page.text)
-        print(login_code['msg'])
+        if "登录成功" in login_code['msg']:
+            return True
+        else:
+            return False
 
 
 if __name__ == '__main__':
     """
-    测试。
+    测试。 
     """
     session = requests.session()
     account = input('Please input your account\n>  ')
