@@ -1,4 +1,5 @@
-# Zquery————基于Python3的知乎非官方API库和交互式命令行
+# Zquery——基于Python3的知乎非官方API库和交互式命令行
+
 ## 介绍
 
 Zquery由Python3.5编写，可以用来获取知乎上的用户信息，问题信息，专栏信息，文章信息等，也可以方便的配合网络爬虫使用。同时，Zquery也提供了一个交互式的环境，可以用于简单的信息查询。  
@@ -22,7 +23,13 @@ print(q.ans_num)
 ```
 数据在电脑内是如何进行传输的？
 ------------------------------------------
-电脑里的数据都是0和1，或者说高电压，低电压，貌似是通过电子移动实现的？对这个东西在电脑里的传送一直缺乏感性认识，求指点。比如大型3D游戏，在内存和显卡之间会存在大量的数据传送，硬件上是如何做到瞬间接收大量数据且不会出错的？我想到提升传输速度的方式是并行，比如一个芯片上有N个金属引脚，意味着这个芯片能一次接受N位数据？但是这N位数据怎么保证完整性，比如一系列N位数据传输的时候，怎么保证每个N位数据是同步的，且不会和之前之后的比特混淆？还有这种电脑内的数据传输是否存在极限速度？
+电脑里的数据都是0和1，或者说高电压，低电压，貌似是通过电子移动实现的？
+对这个东西在电脑里的传送一直缺乏感性认识，求指点。比如大型3D游戏，在内
+存和显卡之间会存在大量的数据传送，硬件上是如何做到瞬间接收大量数据且不
+会出错的？我想到提升传输速度的方式是并行，比如一个芯片上有N个金属引脚，
+意味着这个芯片能一次接受N位数据？但是这N位数据怎么保证完整性，比如一系
+列N位数据传输的时候，怎么保证每个N位数据是同步的，且不会和之前之后的比
+特混淆？还有这种电脑内的数据传输是否存在极限速度？
 ------------------------------------------
 13
 ```
@@ -36,8 +43,12 @@ $ zquery post https://zhuanlan.zhihu.com/p/19780644
 就可以得到以下的输出了    
 
 ```
----------------------------------------                                                         Url: https://zhuanlan.zhihu.com/p/19780644                                                        ID: 19780644                                                                                     Title: 所见（1）                                                                                 Author: MJ勺子                                                                                   Author description: NO description                                                                Summary: 3月在广州，观察黄埔关区，某保税区内，库房密集，不如想象的繁忙。早前闻名四方的「红酒一条街」，漫步其间，招牌、张贴仍在，人迹稀疏，多数店铺已撤空，毫无疑问
-的萧条。据说是该区海关机构比较稳（bao）健（shou），创新力欠缺，导致优质客户流失到别的…                  --------------------------------------- 
+---------------------------------------                                                    Url: https://zhuanlan.zhihu.com/p/19780644                                                  ID: 19780644                                                                               Title: 所见（1）                                                                              Author: MJ勺子                                                                              Author description: NO description                                                         Summary: 3月在广州，观察黄埔关区，某保税区内，库房密集，
+不如想象的繁忙。早前闻名四方的「红酒一条街」，漫步其间，
+招牌、张贴仍在，人迹稀疏，多数店铺已撤空，毫无疑问的萧条。
+据说是该区海关机构比较稳（bao）健（shou），创新力欠缺，
+导致优质客户流失到别的…                  
+--------------------------------------- 
 ```
 
 ## 快速开始
@@ -96,15 +107,15 @@ Options:
     --depth=<co>   显示的条数
 
 Example:
-    zquery -a --depth=15 excited-vczh
-    zquery excited-vczh
-    zquery post https://zhuanlan.zhihu.com/p/19780644
-
-
+```
+zquery -a --depth=15 excited-vczh
+zquery excited-vczh
+zquery post https://zhuanlan.zhihu.com/p/19780644
+```
 
 ## 主要API
-
-### class zquery.User —— 用户操作类
+***注意：部分原理和说明请详见源代码内的注释***
+### *class zquery.User* —— 用户操作类
 
 >__init__(self, id)
 >
@@ -212,7 +223,7 @@ Example:
 >>
 >> rtype: list (support_num, commit_num, question, ans)
 
-### class zquery.Question —— 问题操作类
+### *class zquery.Question* —— 问题操作类
 
 > __init__(self, url)
 >
@@ -266,7 +277,7 @@ Example:
 > >
 > >yieldtype: str
 
-### class zquery.Aaswer —— 回答操作类
+### *class zquery.Aaswer* —— 回答操作类
 
 >__init__(arg1=None, arg2=None)
 >
@@ -320,33 +331,171 @@ Example:
 >>
 >>rtype: zqyery.Question
 
-### class zquery.Column —— 专栏操作类
+### *class zquery.Column* —— 专栏操作类
 
+>__init__(self, url)
 >
+>zquery.Column 类实例化时需要传入一个url作为改类对象的标识，当url传入错误时会抛出异常。
+>
+>@property   url()
+>
+>>返回专栏的URL
+>>
+>>rtype: str
+>
+>@property   id()
+>
+>>返回专栏的ID
+>>
+>>rtype: str
+>
+>@property   title()
+>
+>>返回专栏的标题
+>>
+>>rtype: str
+>
+>@property   description()
+>
+>>返回专栏的描述
+>>
+>>rtype: str
+>
+>@property   followers_count()
+>
+>>返回专栏的关注者的数量
+>>
+>>rtype: int
+>
+>@property   tags()
+>
+>>返回专栏的标签
+>>
+>>rtype: list
+>
+>@property   posts_num()
+>
+>>返回专栏的文章数
+>>
+>>rtype: int
+>
+>get_posts()
+>
+>>返回专栏的文章
+>>
+>>list (id, title, content)
+
+### *class zquery.Post* —— 专栏文章操作类
+
+>__init__(self, url)
+>
+>zquery.Post 类实例化时需要传入一个url作为改类对象的标识，当url传入错误时会抛出异常。
+>
+>@property   url()
+>
+>> 返回专栏文章的URL
+>>
+>> rtype: str
+>
+>@property   id()
+>
+>> 返回专栏文章的ID
+>>
+>> rtype: str
+>
+>@property   title()
+>
+>> 返回专栏的标题
+>>
+>> rtype: str
+>
+>@property   author()
+>
+>>返回专栏文章的作者
+>>
+>>rtype: str
+>
+>@property   summary()
+>
+>>返回专栏文章的摘要
+>>
+>>rtype: str
+>
+>@property   author_des()
+>
+>>返回专栏文章的作者简介
+>>
+>>rtype: str
+>
+>@property   content()
+>
+>>返回专栏文章的内容
+>>
+>>rtype: str
+>
+>get_comments()
+>
+>> 返回专栏文章的评论
+>>
+>> rtype: list (author, content)
 
 
 
-### class zquery.Post —— 专栏文章操作类
+### *class zquery.Client* —— 登录及高阶操作类
 
-### class zquery.Client —— 登录及高阶操作类
+> __init__(account, password)
+>
+> 本类的实例化对象接受一个用户名和密码，用于登录。类的全部曹走都必须先登录再进行.
+>
+> is_login()
+>
+> >判断是否成功登录，如果成功登录返回True，否则返回False
+> >
+> >rtype: bool
+>
+> log_in()
+>
+> >登录
+>
+> @property   session()
+>
+> >返回登录后的网络会话环境
+> >
+> >rtype: requests.Session()
+>
+> get_followees(user)
+>
+> >返回一个用户的全部关注的人的列表
+> >
+> >param: str user 用户的ID
+> >
+> >rtype: list
+>
+> get_followers(user)
+>
+> >返回关注该用户的全部的人的列表
+> >
+> >param: str user 用户的ID
+> >
+> >rtype: list
 
-## 其他工具函数
+# 其他工具函数
 
-### login(requests.Session, secret, account)
+### *login(requests.Session, secret, account)*
 
-登录函数，对于一个刚刚初始化的网络会话，可以利用login函数来登录，并保存登录状态。
+>  登录函数，对于一个刚刚初始化的网络会话，可以利用login函数来登录，并保存登录状态。
 
-### get_hash_id(user)
+### *get_hash_id(user)*
 
-每一个知乎用户都有一个哈希ID，通过此函数可以获取一个用户的hash_id
+> 每一个知乎用户都有一个哈希ID，通过此函数可以获取一个用户的hash_id
 
-### get_xsrf(requests.Session)
+### *get_xsrf(requests.Session)*
 
-每次登录操作都需要一个操作码_xsrf，本函数可以获取操作码。
+> 每次登录操作都需要一个操作码_xsrf，本函数可以获取操作码。
 
-### get_captcha(requests.Session)
+### *get_captcha(requests.Session)*
 
-获取登录时的验证码
+> 获取登录时的验证码
 
 
 

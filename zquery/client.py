@@ -28,6 +28,7 @@ class Client(object):
     此类可以用于一些需要登录的操作。
     例如：获取一个用户的全部关注者和被关注者的列表。
     除此之外的其他操作可以通过本类返回的session来进行
+    类的全部曹走都必须先登录再进行
     """
 
     def __init__(self, account, password):
