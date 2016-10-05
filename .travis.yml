@@ -5,5 +5,5 @@ python:
 
 # command to run tests
 script: 
-  - pip install zquery
+  - pip3 install zquery
   - zquery
