@@ -8,35 +8,35 @@
 
 * [快速开始](#快速开始)
 
-  * [注意](#注意)
+  * 注意
   * 解决依赖
   * 克隆本项目
   * 使用pip直接安装
 
 * [交互命令行的使用](#交互命令行的使用)
 
-  * [Usage](#Usage)
+  * Usage
   * Arguments
   * Options
   * Example
 
-* [主要API](#主要API)
+* [API](#API)
 
-  * [class zquery.User —— 用户操作类](#class zquery.User —— 用户操作类)
+  * [class zquery.User —— 用户操作类](#*class zquery.User* —— 用户操作类)
 
-  * [class zquery.Question —— 问题操作类](#class zquery.Question —— 问题操作类)
+  * [class zquery.Question —— 问题操作类](#*class zquery.Question* —— 问题操作类)
 
-  * [class zquery.Answer —— 回答操作类](#class zquery.Answer —— 回答操作类)
+  * [class zquery.Answer —— 回答操作类](#*class zquery.Answer* —— 回答操作类)
 
-  * [class zquery.Column —— 专栏操作类](#class zquery.Column —— 专栏操作类)
+  * [class zquery.Column —— 专栏操作类](#*class zquery.Column* —— 专栏操作类)
 
-  * [class zquery.Post —— 专栏文章操作类](#class zquery.Post —— 专栏文章操作类)
+  * [class zquery.Post —— 专栏文章操作类](#*class zquery.Post* —— 专栏文章操作类)
 
-  * [class zquery.Client —— 登录及高阶操作类](#class zquery.Client —— 登录及高阶操作类)
+  * [class zquery.Client —— 登录及高阶操作类](#*class zquery.Client* —— 登录及高阶操作类)
 
 * [其他工具函数](#其他工具函数)
 
-  * [login(session, secret, account)](#login(session, secret, account))
+  * login(session, secret, account)
   * get_hash_id(user)
   * get_xsrf(session)
   * get_captcha(session)
@@ -88,7 +88,9 @@ $ zquery post https://zhuanlan.zhihu.com/p/19780644
 ```
 ---------------------------------------                                                    
 Url: https://zhuanlan.zhihu.com/p/19780644                                                  
-ID: 19780644                                                                               Title: 所见（1）                                                                              Author: MJ勺子                                                                              Author description: NO description                                                         Summary: 3月在广州，观察黄埔关区，某保税区内，库房密集，
+ID: 19780644                                                                             
+Title: 所见（1）                                                                            
+Author: MJ勺子                                                                              Author description: NO description                                                         Summary: 3月在广州，观察黄埔关区，某保税区内，库房密集，
 不如想象的繁忙。早前闻名四方的「红酒一条街」，漫步其间，
 招牌、张贴仍在，人迹稀疏，多数店铺已撤空，毫无疑问的萧条。
 据说是该区海关机构比较稳（bao）健（shou），创新力欠缺，
@@ -157,7 +159,7 @@ zquery excited-vczh
 zquery post https://zhuanlan.zhihu.com/p/19780644
 ```
 
-## 主要API
+## API
 ### *class zquery.User* —— 用户操作类
 
 >__init__(self, id)
