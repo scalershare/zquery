@@ -20,7 +20,7 @@
   * Options
   * Example
 
-* [API](#API)
+* [主要API](#主要API)
 
   * [class zquery.User —— 用户操作类](#*class zquery.User* —— 用户操作类)
 
@@ -159,7 +159,7 @@ zquery excited-vczh
 zquery post https://zhuanlan.zhihu.com/p/19780644
 ```
 
-## API
+## 主要API
 ### *class zquery.User* —— 用户操作类
 
 >__init__(self, id)
