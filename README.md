@@ -1,5 +1,48 @@
 # Zquery——基于Python3的知乎非官方API库和交互式命令行
 
+## Table of Contents
+
+* [Table of Contents](#Table of Contents)
+
+* [介绍](#介绍)
+
+* 快速开始
+
+  * 注意
+  * 解决依赖
+  * 克隆本项目
+  * 使用pip直接安装
+
+* 交互命令行的使用
+
+  * Usage
+  * Arguments
+  * Options
+  * Example
+
+* 主要API
+
+  * class zquery.User —— 用户操作类
+
+  * class zquery.Question —— 问题操作类
+
+  * class zquery.Answer —— 回答操作类
+
+  * class zquery.Column —— 专栏操作类
+
+  * class zquery.Post —— 专栏文章操作类
+
+  * class zquery.Client —— 登录及高阶操作类
+
+* 其他工具函数
+
+  * login(session, secret, account)
+  * get_hash_id(user)
+  * get_xsrf(session)
+  * get_captcha(session)
+
+
+
 ## 介绍
 
 Zquery由Python3.5编写，可以用来获取知乎上的用户信息，问题信息，专栏信息，文章信息等，也可以方便的配合网络爬虫使用。同时，Zquery也提供了一个交互式的环境，可以用于简单的信息查询。  
@@ -77,7 +120,7 @@ $ cd Zquery
 $ python install setup.py
 ```
 
-**本项目已上传至pypi，可通过以下命令直接安装**
+**使用pip直接安装**
 
 `$ pip install zquery`
 
@@ -481,20 +524,40 @@ zquery post https://zhuanlan.zhihu.com/p/19780644
 
 # 其他工具函数
 
-### *login(requests.Session, secret, account)*
+### *login(session, secret, account)*
 
+>  param: requests.Session() session 网络会话
+>
+>  param: str secret 知乎账户密码
+>
+>  param: str account 知乎账户
+>
 >  登录函数，对于一个刚刚初始化的网络会话，可以利用login函数来登录，并保存登录状态。
 
 ### *get_hash_id(user)*
 
+> params: str user 知乎用户ID
+>
+> return: 知乎用户的哈希ID
+>
+> rtypes: str
+>
 > 每一个知乎用户都有一个哈希ID，通过此函数可以获取一个用户的hash_id
 
-### *get_xsrf(requests.Session)*
+### *get_xsrf(session)*
 
+> param: requests.Session() session 网络会话
+>
+> return: 登录时所需的_xsrf码
+>
+> rtypes: str
+>
 > 每次登录操作都需要一个操作码_xsrf，本函数可以获取操作码。
 
-### *get_captcha(requests.Session)*
+### *get_captcha(session)*
 
+> param: requests.Session() session 网络会话
+>
 > 获取登录时的验证码
 
 
