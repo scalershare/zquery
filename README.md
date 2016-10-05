@@ -114,7 +114,7 @@ Author: MJ勺子                                                                
 ```
 $ git clone https://github.com/WiseDoge/Zquery.git
 $ cd Zquery
-$ python install setup.py
+$ python setup.py install 
 ```
 
 **使用pip直接安装**
