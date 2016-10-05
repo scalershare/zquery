@@ -12,4 +12,4 @@ script:
   - pip3 install prettytable
   - pip3 install docopt
   - pip3 install zquery
-  - zquery
+  - zquery excited-vczh
