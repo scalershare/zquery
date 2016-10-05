@@ -43,7 +43,9 @@ $ zquery post https://zhuanlan.zhihu.com/p/19780644
 就可以得到以下的输出了    
 
 ```
----------------------------------------                                                    Url: https://zhuanlan.zhihu.com/p/19780644                                                  ID: 19780644                                                                               Title: 所见（1）                                                                              Author: MJ勺子                                                                              Author description: NO description                                                         Summary: 3月在广州，观察黄埔关区，某保税区内，库房密集，
+---------------------------------------                                                    
+Url: https://zhuanlan.zhihu.com/p/19780644                                                  
+ID: 19780644                                                                               Title: 所见（1）                                                                              Author: MJ勺子                                                                              Author description: NO description                                                         Summary: 3月在广州，观察黄埔关区，某保税区内，库房密集，
 不如想象的繁忙。早前闻名四方的「红酒一条街」，漫步其间，
 招牌、张贴仍在，人迹稀疏，多数店铺已撤空，毫无疑问的萧条。
 据说是该区海关机构比较稳（bao）健（shou），创新力欠缺，
@@ -52,8 +54,6 @@ $ zquery post https://zhuanlan.zhihu.com/p/19780644
 ```
 
 ## 快速开始
-
-### 准备
 
 **注意**
 
@@ -65,6 +65,7 @@ $ zquery post https://zhuanlan.zhihu.com/p/19780644
 * BeautifulSoup
 * lxml
 * requests
+* pillow
 * prettytable
 * docopt
 
@@ -76,7 +77,7 @@ $ cd Zquery
 $ python install setup.py
 ```
 
-**直接安装**
+**本项目已上传至pypi，可通过以下命令直接安装**
 
 `$ pip install zquery`
 
@@ -114,7 +115,6 @@ zquery post https://zhuanlan.zhihu.com/p/19780644
 ```
 
 ## 主要API
-***注意：部分原理和说明请详见源代码内的注释***
 ### *class zquery.User* —— 用户操作类
 
 >__init__(self, id)
@@ -277,7 +277,7 @@ zquery post https://zhuanlan.zhihu.com/p/19780644
 > >
 > >yieldtype: str
 
-### *class zquery.Aaswer* —— 回答操作类
+### *class zquery.Answer* —— 回答操作类
 
 >__init__(arg1=None, arg2=None)
 >
