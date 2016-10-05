@@ -23,15 +23,10 @@
 * [主要API](#主要API)
 
   * [class zquery.User —— 用户操作类](#*class zquery.User* —— 用户操作类)
-
   * [class zquery.Question —— 问题操作类](#*class zquery.Question* —— 问题操作类)
-
   * [class zquery.Answer —— 回答操作类](#*class zquery.Answer* —— 回答操作类)
-
   * [class zquery.Column —— 专栏操作类](#*class zquery.Column* —— 专栏操作类)
-
   * [class zquery.Post —— 专栏文章操作类](#*class zquery.Post* —— 专栏文章操作类)
-
   * [class zquery.Client —— 登录及高阶操作类](#*class zquery.Client* —— 登录及高阶操作类)
 
 * [其他工具函数](#其他工具函数)
