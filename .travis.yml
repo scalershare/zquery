@@ -13,3 +13,4 @@ script:
   - pip3 install docopt
   - pip3 install zquery
   - zquery excited-vczh
+  - python3 zquery_test.py

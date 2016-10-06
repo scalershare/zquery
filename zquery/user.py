@@ -289,7 +289,7 @@ class User(object):
                 raw_content = article.find(
                     "div", {"class": "zh-summary summary clearfix"}).get_text()
                 content = raw_content.replace(
-                    "\n", "").replace("显示全部", "")[:45]
+                    "\n", "").replace("显示全部", "")[:40]
 
                 if not content:
                     content = "NO"
