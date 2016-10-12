@@ -1,5 +1,5 @@
 # Zquery——基于Python3的知乎非官方API库和交互式命令行
-![image](https://travis-ci.org/WiseDoge/zquery.svg?branch=master)[![PyPI](https://img.shields.io/badge/pypi-V1.0.2-green.svg)](https://pypi.python.org/pypi/zquery)
+![image](https://travis-ci.org/WiseDoge/zquery.svg?branch=master)[![PyPI](https://img.shields.io/badge/pypi-V2.0.0-green.svg)](https://pypi.python.org/pypi/zquery)
 
 ## Table of Contents
 
