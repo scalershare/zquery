@@ -37,7 +37,7 @@
   * get_hash_id(user)
   * get_xsrf(session)
   * get_captcha(session)
-* 近期更新
+* [近期更新](#近期更新)
 
 
 
