@@ -1,11 +1,10 @@
-from zquery import __version__
 from setuptools import setup
 
 
 
 setup(
     name='zquery',
-    version=__version__,
+    version='2.0.0',
     description='Zhihu UNOFFICIAL API library based on Python3',
     long_description = 'Please go to https://github.com/WiseDoge/zquery',
     author='wisedoge',
@@ -21,7 +20,6 @@ setup(
         'prettytable',
         'requests',
         'bs4',
-        'lxml',
         'docopt',
         'pillow',
     ],

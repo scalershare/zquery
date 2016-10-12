@@ -24,6 +24,7 @@ from .post import Post
 from .column import Column
 from .question import Question
 from .answer import Answer
+from .collection import Collection
 
 MAX_COUNT = 10000
 
@@ -166,6 +167,23 @@ def pprint_answer(url):
     print("Modify date: " + a.modify_date)
     print("Content: " + a.content)
     print("---------------------------------------")
+
+
+def pprint_collection(url):
+    """输出一个收藏夹的信息
+    :param str url: 网址
+    """
+    c = Collection(url)
+    print("---------------------------------------")
+    print("Url: " + c.url)
+    print("ID: " + c.id)
+    print("Title: " + c.title)
+    print("Description: " + c.description)
+    print("Creator : " + c.creator)
+    print("Creator Description: " + c.creator_des)
+    print("---------------------------------------")
+
+
 
 if __name__ == "__main__":
     # pprint_user_article("excited-vczh",30)

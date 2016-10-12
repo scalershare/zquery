@@ -6,6 +6,7 @@ Usage:
     zquery answer <url>
     zquery column <url>
     zquery post <url>
+    zquery collection <url>
 
 Options:
     -q             提问 
@@ -40,6 +41,8 @@ def cli():
         pprint_column(args['<url>'])
     elif args["answer"] == True:
         pprint_answer(args['<url>'])
+    elif args["collection"] == True:
+        pprint_collection(args['<url>'])
     else:
         pprint_user_base(args['<user>'])
 

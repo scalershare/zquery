@@ -15,7 +15,11 @@
 from bs4 import BeautifulSoup
 from PIL import Image
 import requests
-import lxml
+try:
+    import lxml
+    PARSER = "lxml"
+except:
+    PARSER = "html.parser"
 import time
 import re
 
@@ -28,7 +32,7 @@ MODE = re.compile(r'\d+')
 def get_soup(url):
 
     r = requests.get(url, headers=headers)
-    soup = BeautifulSoup(r.content.decode("utf-8"), "lxml")
+    soup = BeautifulSoup(r.content.decode("utf-8"), PARSER)
     return soup
 
 

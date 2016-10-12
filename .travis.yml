@@ -3,14 +3,8 @@ python:
   - "3.5"
 
 
-# command to run tests
+# 暂定
 script: 
-  - pip3 install requests
-  - pip3 install bs4
-  - pip3 install pillow
-  - pip3 install lxml
-  - pip3 install prettytable
-  - pip3 install docopt
   - pip3 install zquery
   - zquery excited-vczh
   - python3 zquery_test.py

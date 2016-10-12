@@ -12,13 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .utils import get_soup, get_hash_id, get_xsrf
+from .utils import get_soup, get_hash_id, get_xsrf, PARSER
 from .error import UnLoginException
 from bs4 import BeautifulSoup
 from .login import login
 import requests
 import json
-import lxml
+try:
+    import lxml
+except:
+    pass
 import re
 
 
@@ -88,7 +91,7 @@ class Client(object):
 
         followees = []
         html = self.__session.get(url, headers=refer_headers)
-        bsobj = BeautifulSoup(html.text, "lxml")
+        bsobj = BeautifulSoup(html.text, PARSER)
         _followee_count = bsobj.find("a", {"class": "item", "href": re.compile(
             "followees")}).find("strong").get_text()
         followee_count = int(_followee_count)
@@ -106,7 +109,7 @@ class Client(object):
                 api_url, data=payload, headers=refer_headers)
             page = r.json()['msg']
             for msg in page:
-                soup = BeautifulSoup(msg, "lxml")
+                soup = BeautifulSoup(msg, PARSER)
                 div = soup.find(
                     "div", {"class": "zm-profile-card zm-profile-section-item zg-clear no-hovercard"})
                 name = div.find(
@@ -138,7 +141,7 @@ class Client(object):
 
         followers = []
         html = self.__session.get(url, headers=refer_headers)
-        bsobj = BeautifulSoup(html.text, "lxml")
+        bsobj = BeautifulSoup(html.text, PARSER)
         _follower_count = bsobj.find("a", {"class": "item", "href": re.compile(
             "followers")}).find("strong").get_text()
         follower_count = int(_follower_count)
@@ -156,7 +159,7 @@ class Client(object):
                 api_url, data=payload, headers=refer_headers)
             page = r.json()['msg']
             for msg in page:
-                soup = BeautifulSoup(msg, "lxml")
+                soup = BeautifulSoup(msg, PARSER)
                 div = soup.find(
                     "div", {"class": "zm-profile-card zm-profile-section-item zg-clear no-hovercard"})
                 name = div.find(

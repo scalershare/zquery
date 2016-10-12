@@ -28,6 +28,7 @@
   * [class zquery.Answer —— 回答操作类](#*class zquery.Answer* —— 回答操作类)
   * [class zquery.Column —— 专栏操作类](#*class zquery.Column* —— 专栏操作类)
   * [class zquery.Post —— 专栏文章操作类](#*class zquery.Post* —— 专栏文章操作类)
+  * [class zquery.Collection —— 收藏夹操作类](#*class zquery.Collection* —— 收藏夹操作类)
   * [class zquery.Client —— 登录及高阶操作类](#*class zquery.Client* —— 登录及高阶操作类)
 
 * [其他工具函数](#其他工具函数)
@@ -36,6 +37,7 @@
   * get_hash_id(user)
   * get_xsrf(session)
   * get_captcha(session)
+* 近期更新
 
 
 
@@ -109,6 +111,8 @@ Author: MJ勺子                                                                
 * pillow
 * prettytable
 * docopt
+
+因为lxml库在某些系统中安装较为苦难，固不作为必须库，如果从pip安装zquery，则默认不安装lxml，但建议使用lxml，因为lxml的底层是基于C的，解析速度要超过自带的解析库。
 
 **克隆本项目**
 
@@ -480,6 +484,54 @@ zquery post https://zhuanlan.zhihu.com/p/19780644
 >>
 >> rtype: list (author, content)
 
+### *class zquery.Collection* —— 收藏夹操作类
+
+>__init__(self, url)
+>
+>zquery.Column 类实例化时需要传入一个url作为改类对象的标识，当url传入错误时会抛出异常。
+>
+>@property   url()
+>
+>> 返回收藏夹的URL
+>>
+>> rtype: str
+>
+>@property   id()
+>
+>> 返回收藏夹的ID
+>>
+>> rtype: str
+>
+>@property   title()
+>
+>> 返回收藏夹的标题
+>>
+>> rtype: str
+>
+>@property description()
+>
+>> 返回收藏夹的介绍
+>>
+>> rtype: str
+>
+>@property creator()
+>
+>> 返回收藏夹的创作者
+>>
+>> rtype: str
+>
+>@property creator_des()
+>
+>> 返回收藏夹的创作者的介绍
+>>
+>> trype: str
+>
+>get_questions(count=MAX_COUNT)
+>
+>> 返回收藏夹指定数量的提问和提问的URL
+>>
+>> type: list (title, url)
+
 
 
 ### *class zquery.Client* —— 登录及高阶操作类
@@ -559,6 +611,10 @@ zquery post https://zhuanlan.zhihu.com/p/19780644
 > 获取登录时的验证码
 
 
+
+## 近期更新
+
+V2.0.0：增加收藏夹操作类，同时，lxml库不再作为必须库（如果电脑上先前就有lxml库，则优先使用lxml库作为解析引擎）。
 
 
 

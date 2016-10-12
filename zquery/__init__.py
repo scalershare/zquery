@@ -14,6 +14,7 @@
 
 from .question import Question
 from .answer import Answer
+from .collection import Collection
 from .column import Column
 from .post import Post
 from .login import login
@@ -31,4 +32,4 @@ __all__ = [
     'pprint_user_base',
 ]
 
-__version__ = '1.0.2'
+
