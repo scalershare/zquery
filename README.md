@@ -1,4 +1,4 @@
-# Zquery——基于Python3的知乎非官方API库和交互式命令行
+# zquery——基于Python3的知乎非官方API库和交互式命令行
 ![image](https://travis-ci.org/WiseDoge/zquery.svg?branch=master)[![PyPI](https://img.shields.io/badge/pypi-V2.0.0-green.svg)](https://pypi.python.org/pypi/zquery)
 
 ## Table of Contents
@@ -43,7 +43,7 @@
 
 ## 介绍
 
-Zquery由Python3.5编写，可以用来获取知乎上的用户信息，问题信息，专栏信息，文章信息等，也可以方便的配合网络爬虫使用。同时，Zquery也提供了一个交互式的环境，可以用于简单的信息查询。  
+zquery由Python3.5编写，可以用来获取知乎上的用户信息，问题信息，专栏信息，文章信息等，也可以方便的配合网络爬虫使用。同时，zquery也提供了一个交互式的环境，可以用于简单的信息查询。  
 
 例如，对于一个问题，使用如下代码就可以获得一些它的信息：
 
@@ -112,7 +112,7 @@ Author: MJ勺子                                                                
 * prettytable
 * docopt
 
-因为lxml库在某些系统中安装较为苦难，固不作为必须库，如果从pip安装zquery，则默认不安装lxml，但建议使用lxml，因为lxml的底层是基于C的，解析速度要超过自带的解析库。
+因为lxml库在某些系统中安装较为困难，固不作为必须库，如果从pip安装zquery，则默认不安装lxml，但建议使用lxml，因为lxml的底层是基于C的，解析速度要超过自带的解析库。
 
 **克隆本项目**
 
