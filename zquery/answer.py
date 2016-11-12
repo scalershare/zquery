@@ -22,7 +22,7 @@ class Answer(object):
     答案类，提供关于问题答案的操作API
     """
 
-    def __init__(self, arg1=None, arg2=None):
+    def __init__(self, arg1=None, arg2=None, *args, **kwargs):
         """初始化
 
         :param str arg1: URL or 问题ID

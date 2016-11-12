@@ -21,7 +21,7 @@ class Question(object):
     问题类，提供问题操作的API
     """
 
-    def __init__(self, url):
+    def __init__(self, url, *args, **kwargs):
         """初始化
 
         :param str url: 问题的网址

@@ -34,7 +34,7 @@ class Client(object):
     类的全部曹走都必须先登录再进行
     """
 
-    def __init__(self, account, password):
+    def __init__(self, account, password, *args, **kwargs):
         """
         :param str account: 知乎用户名
         :param str account: 知乎密码

@@ -20,7 +20,7 @@ from .error import UrlException
 MAX_COUNT = 10000
 
 class Collection(object):
-    def __init__(self, url):
+    def __init__(self, url, *args, **kwargs):
         self.__url = url
         if "?" in self.__url or "http" not in self.__url:
             raise UrlException

@@ -24,7 +24,7 @@ class Post(object):
     知乎专栏文章类,提供知乎专栏文章的API。
     """
 
-    def __init__(self, url):
+    def __init__(self, url, *args, **kwargs):
         """初始化
 
         :param str url: 文章的网址

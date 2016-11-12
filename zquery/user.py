@@ -24,7 +24,7 @@ class User(object):
     用户类，提供关于用户操作的API
     """
 
-    def __init__(self, id):
+    def __init__(self, id, *args, **kwargs):
         """初始化
 
         :param str id: 用户的ID
